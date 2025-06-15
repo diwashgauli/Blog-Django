@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+        <h2>Draft Posts</h2>
+        {% if drafts %}
+            {% for post in drafts %}
+            <div class="post mb-4 p-3 border rounded bg-light">
+                <h3>
+                    <a href="{% url 'view-content' post.id %}" class="text-decoration-none fst-italic">{{ post.title }}</a>
+                </h3>
+                <div class="author text-muted mb-2">@{{ post.author.username }}</div>
+                <p>
+                    {{ post.content|truncatechars:200 }}
+                    <a href="{% url 'view-content' post.id %}">View more</a>
+                </p>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>No drafts available.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
