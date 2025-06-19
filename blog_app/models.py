@@ -12,6 +12,9 @@ class Post(models.Model):
         return self.title
     
 
+#published_at data chaina => null cha 
+#published_at data cha => null chaina 
+
 
 ## 1- 1 Relationship 
 # 1 user can have only 1 profile =>1
